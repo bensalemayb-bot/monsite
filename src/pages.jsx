@@ -2072,3 +2072,6 @@ function LegalBlock({ title, children }) {
 window.Binacore.Pages = {
   HomePage, ServicesPage, AgentsPage, ProjetsPage, ProcessusPage, AboutPage, ContactPage, LegalPage, PrivacyPage
 };
+// Le chatbot d'audit est utilisé à la fois en inline dans /a-propos
+// et dans la modale globale ouverte par chaque CTA "Démarrer un audit".
+window.Binacore.AuditChatbot = AuditChatbot;

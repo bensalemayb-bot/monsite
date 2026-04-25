@@ -238,19 +238,12 @@ function Footer({ onOpenAudit }) {
   );
 }
 
-// ---------- Audit Modal ----------
-function AuditModal({ open, onClose, onDone }) {
-  const [step, setStep] = useState(0);
-  const [ans, setAns] = useState({ tache: '', volume: '', email: '' });
-  const [error, setError] = useState('');
-
+// ---------- Audit Modal — wrapper qui ouvre le chatbot d'audit conversationnel ----------
+// Le composant AuditChatbot est défini dans pages.jsx et exposé via window.Binacore.
+function AuditModal({ open, onClose }) {
   useEffect(() => {
-    if (!open) {
-      // reset au close
-      setTimeout(() => { setStep(0); setAns({ tache: '', volume: '', email: '' }); setError(''); }, 350);
-    } else {
-      document.body.style.overflow = 'hidden';
-    }
+    if (open) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = '';
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
@@ -263,109 +256,31 @@ function AuditModal({ open, onClose, onDone }) {
 
   if (!open) return null;
 
-  const tacheOpts = [
-    'Traiter les emails',
-    'Extraire données documents',
-    'Support client',
-    'Synchroniser outils',
-    'Créer un SaaS vertical',
-    'Autre'
-  ];
-  const volumeOpts = ['< 50 / jour', '50 – 200 / jour', '200 – 500 / jour', '> 500 / jour', 'Projet unique'];
-
-  const pickTache = (v) => { setAns(a => ({ ...a, tache: v })); setStep(1); };
-  const pickVolume = (v) => { setAns(a => ({ ...a, volume: v })); setStep(2); };
-
-  const submitEmail = () => {
-    const email = ans.email.trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      setError('Email invalide. Format attendu : prenom@domaine.ch');
-      return;
-    }
-    setError('');
-    setStep(3);
-    if (typeof onDone === 'function') onDone(ans);
-  };
+  const Chatbot = (window.Binacore && window.Binacore.AuditChatbot) || null;
 
   return (
-    <div className="modal-backdrop" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="audit-modal-title">
-      <div className="modal" onClick={e => e.stopPropagation()}>
-        <button className="modal__close" onClick={onClose} aria-label="Fermer">
+    <div
+      className="modal-backdrop modal-backdrop--chat"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Démarrer un audit Binacore"
+    >
+      <div className="audit-chat-shell" onClick={e => e.stopPropagation()}>
+        <button
+          className="audit-chat-shell__close"
+          onClick={onClose}
+          aria-label="Fermer le chat d'audit"
+          type="button"
+        >
           <Icon name="close" size={18} />
         </button>
-
-        {step === 0 && (
-          <Fragment>
-            <div className="modal__header">
-              <span className="modal__step">Étape 1/3</span>
-              <h3 className="modal__title" id="audit-modal-title">Quelle tâche vous coûte le plus de temps ?</h3>
-            </div>
-            <div className="modal__body">
-              {tacheOpts.map(o => (
-                <button key={o} className="modal__option" onClick={() => pickTache(o)}>{o}</button>
-              ))}
-            </div>
-          </Fragment>
-        )}
-
-        {step === 1 && (
-          <Fragment>
-            <div className="modal__header">
-              <span className="modal__step">Étape 2/3</span>
-              <h3 className="modal__title" id="audit-modal-title">Quel volume par jour ?</h3>
-            </div>
-            <div className="modal__body">
-              {volumeOpts.map(o => (
-                <button key={o} className="modal__option" onClick={() => pickVolume(o)}>{o}</button>
-              ))}
-            </div>
-          </Fragment>
-        )}
-
-        {step === 2 && (
-          <Fragment>
-            <div className="modal__header">
-              <span className="modal__step">Étape 3/3</span>
-              <h3 className="modal__title" id="audit-modal-title">Où recevoir le diagnostic ?</h3>
-            </div>
-            <div className="modal__body">
-              <input
-                type="email"
-                className="modal__input"
-                placeholder="vous@entreprise.ch"
-                value={ans.email}
-                onChange={e => setAns(a => ({ ...a, email: e.target.value }))}
-                onKeyDown={e => { if (e.key === 'Enter') submitEmail(); }}
-                autoFocus
-              />
-              {error && <div className="form-field__error">{error}</div>}
-              <button className="btn-primary" onClick={submitEmail} style={{ marginTop: 8, alignSelf: 'flex-start' }}>
-                Envoyer <Icon name="arrowRight" size={16} />
-              </button>
-            </div>
-          </Fragment>
-        )}
-
-        {step === 3 && (
-          <Fragment>
-            <div className="modal__header">
-              <span className="modal__step">Confirmation</span>
-              <h3 className="modal__title" id="audit-modal-title">C'est noté. Réponse sous 48 h.</h3>
-            </div>
-            <div className="modal__body">
-              <div className="modal__recap">
-                <div><b>Type de besoin</b> : {ans.tache}</div>
-                <div><b>Volume</b> : {ans.volume}</div>
-                <div><b>Email</b> : {ans.email}</div>
-              </div>
-              <p style={{ color: 'var(--ink-d-mute)', fontSize: 14, lineHeight: 1.6, marginTop: 8 }}>
-                Nous reviendrons vers vous avec un diagnostic chiffré. Sans engagement.
-              </p>
-              <button className="btn-primary" onClick={onClose} style={{ alignSelf: 'flex-start', marginTop: 8 }}>
-                Fermer
-              </button>
-            </div>
-          </Fragment>
+        {Chatbot ? (
+          <Chatbot />
+        ) : (
+          <div style={{ background: 'var(--bg-card)', padding: 32, borderRadius: 16, color: 'var(--ink-mute)' }}>
+            Le chatbot d'audit n'est pas encore prêt. Réessayez dans quelques secondes.
+          </div>
         )}
       </div>
     </div>

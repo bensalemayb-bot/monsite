@@ -1347,6 +1347,53 @@ main { display: block; min-height: 100vh; }
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+/* Variante "chat" — utilisée par AuditModal pour wrapper le chatbot d'audit. */
+.modal-backdrop--chat {
+  padding: 32px 16px;
+  align-items: center;
+}
+.audit-chat-shell {
+  width: 100%;
+  max-width: 780px;
+  position: relative;
+  animation: modalIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.audit-chat-shell .chatbox {
+  height: min(85vh, 720px);
+  max-height: 720px;
+  width: 100%;
+  max-width: 100%;
+}
+.audit-chat-shell__close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 8px 24px -8px rgba(15, 23, 42, 0.3);
+  transition: transform 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.audit-chat-shell__close:hover {
+  transform: scale(1.08);
+  border-color: var(--ac);
+  color: var(--ac);
+  box-shadow: 0 10px 28px -8px var(--ac-glow);
+}
+@media (max-width: 600px) {
+  .modal-backdrop--chat { padding: 16px 8px; }
+  .audit-chat-shell__close { top: 8px; right: 8px; width: 36px; height: 36px; }
+  .audit-chat-shell .chatbox { height: calc(100vh - 32px); max-height: none; border-radius: 16px; }
+}
+
 .modal {
   background: var(--bg-card);
   border: 1px solid var(--line);
