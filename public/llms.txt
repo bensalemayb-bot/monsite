@@ -1,0 +1,34 @@
+# Binacore
+
+Atelier de build IA indépendant basé à Genève, Suisse.
+Exploité en raison individuelle par Boualem Bensalem.
+
+## Offres
+- Automatisations : workflows custom livrés en 3-7 jours, dès CHF 1'800
+- Agents IA : assistants spécialisés en 1-3 semaines, dès CHF 6'500
+- SaaS sur-mesure : micro-produits verticaux en 4-6 semaines, dès CHF 18'000
+
+## Équipe
+- Boualem Bensalem (fondateur, lead builder)
+- Ayoub Bensalem (co-builder, dev)
+
+## Stack
+Next.js, FastAPI, PostgreSQL, Qdrant, Redis, Docker, LiteLLM, Claude, Whisper.
+
+## Projets
+- https://iafactory.ch (plateforme IA suisse · 6 agents verticaux)
+- https://iafactoryalgeria.com (plateforme IA Algérie · 27 agents)
+- https://rateboost.eu (Revenue AI hôteliers indépendants · v0.4.1)
+- KhutbaBox (traduction sermons temps réel 8 langues · MVP)
+- https://change.iafactory.ch (comparateur EUR/CHF · MVP)
+
+## Valeurs
+- Souveraineté des données (hébergement CH, self-hosted)
+- Code livré (le client possède le code source)
+- Rapidité (AI-native, cycles 10× plus courts qu'agences classiques)
+- Bilingue FR/AR (utile pour PME avec présence maghrébine)
+- Conformité nLPD + RGPD
+
+## Contact
+contact@binacore.ch
+Genève, Suisse

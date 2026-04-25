@@ -1,0 +1,37 @@
+{
+  "rag": {
+    "sample": "Q: Quels sont vos tarifs pour une SARL ?\n\nR: Pour une SARL suisse de taille standard (CA < CHF 500'000), notre forfait annuel démarre à CHF 3'600 HT et inclut :\n  - Tenue comptable complète\n  - Déclaration TVA trimestrielle\n  - Bouclement annuel\n  - Déclaration fiscale\n\nAudit externe et reporting analytique facturés en sus selon volume.\n\nSource : tarifs_sarl_2026.md (Cabinet Comptable Lac Léman · démo)"
+  },
+  "ocr": {
+    "sample": {
+      "fournisseur": "Acme SA",
+      "numero_facture": "F-2026-0412",
+      "date_emission": "2026-03-28",
+      "montant_ht": 4500.00,
+      "tva_rate": 7.7,
+      "tva_amount": 346.50,
+      "montant_ttc": 4846.50,
+      "iban_paiement": "CH93 0076 2011 6238 5295 7",
+      "doublon_potentiel": false,
+      "anomalies": []
+    }
+  },
+  "email": {
+    "sample": {
+      "email_source": "Bonjour, je n'arrive pas à me connecter à mon espace client depuis ce matin, j'ai un rendez-vous important à 14h et j'ai besoin de mon dossier. Pouvez-vous m'aider rapidement svp ? Cordialement, Marc",
+      "categorie": "client_support",
+      "urgence": "haute",
+      "action_suggeree": "Débloquer l'accès avant 14h + envoyer dossier par email",
+      "draft_reponse": "Bonjour Marc,\n\nJe suis désolé pour ce désagrément. Je réinitialise votre accès à l'instant, vous recevrez un nouveau lien de connexion sous 5 minutes. En parallèle, je vous envoie votre dossier complet en pièce jointe pour vous couvrir avant votre rendez-vous de 14h.\n\nN'hésitez pas à me répondre si le lien n'arrive pas ou si vous avez besoin d'autre chose.\n\nCordialement,\nL'équipe support"
+    }
+  },
+  "audio": {
+    "sample": {
+      "transcription_fr": "Bienvenue à la conférence de ce matin. Nous allons parler de l'évolution des réglementations nLPD et RGPD pour les PME suisses en 2026.",
+      "translation_ar": "مرحباً بكم في مؤتمر هذا الصباح. سنتحدث عن تطور لوائح nLPD و RGPD للشركات الصغيرة والمتوسطة السويسرية في عام 2026.",
+      "translation_en": "Welcome to this morning's conference. We will discuss the evolution of nLPD and GDPR regulations for Swiss SMEs in 2026.",
+      "duration_s": 14.2,
+      "language_detected": "fr"
+    }
+  }
+}

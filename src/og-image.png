@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#d4fb50" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#d4fb50" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0a0b"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g opacity="0.06">
+    <line x1="0" y1="157" x2="1200" y2="157" stroke="#f5f5f3" stroke-width="1"/>
+    <line x1="0" y1="315" x2="1200" y2="315" stroke="#f5f5f3" stroke-width="1"/>
+    <line x1="0" y1="472" x2="1200" y2="472" stroke="#f5f5f3" stroke-width="1"/>
+    <line x1="300" y1="0" x2="300" y2="630" stroke="#f5f5f3" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="630" stroke="#f5f5f3" stroke-width="1"/>
+    <line x1="900" y1="0" x2="900" y2="630" stroke="#f5f5f3" stroke-width="1"/>
+  </g>
+  <g transform="translate(80, 80)">
+    <circle cx="10" cy="10" r="8" fill="#d4fb50"/>
+    <text x="30" y="18" font-family="JetBrains Mono, monospace" font-size="14" fill="#f5f5f3" letter-spacing="3">BINACORE · GENÈVE 2026</text>
+  </g>
+  <text x="80" y="320" font-family="Inter, system-ui, sans-serif" font-size="92" font-weight="700" fill="#f5f5f3" letter-spacing="-4">Builder IA à Genève.</text>
+  <text x="80" y="420" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="92" font-weight="400" fill="#d4fb50" letter-spacing="-2">On ship du soft qui tourne.</text>
+  <text x="80" y="560" font-family="JetBrains Mono, monospace" font-size="16" fill="#f5f5f3" opacity="0.5" letter-spacing="2">AUTOMATISATIONS · AGENTS IA · SAAS SUR-MESURE · PME SUISSES</text>
+</svg>

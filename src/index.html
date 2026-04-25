@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0a0a0b" />
+
+  <!-- SEO de base (surchargé par les pages au runtime) -->
+  <title>Binacore — Builder IA Genève · Automatisations, Agents IA, SaaS sur-mesure</title>
+  <meta name="description" content="Atelier de build IA indépendant basé à Genève. Automatisations, agents IA et SaaS sur-mesure pour PME suisses. Livraison rapide grâce à Claude Code." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Binacore — Builder IA Genève" />
+  <meta property="og:description" content="Automatisations, agents IA et SaaS sur-mesure pour PME suisses. Livrés en jours, pas en mois." />
+  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://binacore.ch" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Binacore — Builder IA Genève" />
+  <meta name="twitter:description" content="Automatisations, agents IA et SaaS sur-mesure pour PME suisses." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./site.css" />
+
+  <!-- Schema.org Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Binacore",
+    "alternateName": "Binacore — Boualem Bensalem",
+    "url": "https://binacore.ch",
+    "email": "contact@binacore.ch",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Genève",
+      "addressCountry": "CH"
+    },
+    "founder": { "@type": "Person", "name": "Boualem Bensalem" },
+    "employee": [
+      { "@type": "Person", "name": "Boualem Bensalem", "jobTitle": "Fondateur" },
+      { "@type": "Person", "name": "Ayoub Bensalem", "jobTitle": "Développeur" }
+    ],
+    "areaServed": ["CH", "DZ"],
+    "knowsAbout": ["Automatisation", "Agents IA", "SaaS sur-mesure", "RAG", "FastAPI", "Next.js", "Claude"]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu</a>
+
+  <div id="root"></div>
+
+  <!-- React 18 + Babel Standalone (Option A) -->
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Spline Viewer (3D scene web component, no bundler needed) -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.55/build/spline-viewer.js"></script>
+
+  <!-- Tailwind CSS (Play CDN) — pour utilitaires ponctuels sans bundler -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'media',
+      theme: {
+        extend: {
+          colors: {
+            ink:        '#0f172a',
+            'ink-mute': 'rgba(15,23,42,0.62)',
+            'ink-faint':'rgba(15,23,42,0.38)',
+            bg:         '#f7f8fb',
+            'bg-alt':   '#eef1f7',
+            'bg-card':  '#ffffff',
+            'bg-deep':  '#0f172a',
+            ac:         '#2563eb',
+            'ac-hover': '#1d4ed8',
+            'ac-soft':  '#dbeafe',
+            'ac-glow':  'rgba(37,99,235,0.25)'
+          },
+          fontFamily: {
+            sans:   ['Inter', 'system-ui', 'sans-serif'],
+            serif:  ['"Instrument Serif"', 'Georgia', 'serif'],
+            mono:   ['"JetBrains Mono"', 'monospace']
+          },
+          maxWidth: { 'wrap': '1400px' },
+          boxShadow: {
+            'glow': '0 12px 30px rgba(37, 99, 235, 0.30)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Router + fallbacks démos -->
+  <script src="./router.js"></script>
+  <script>
+    // Chargement asynchrone des fallbacks de démo (pour DemoModal en mode offline).
+    window.__demoFallbacks = {};
+    fetch('./demo-fallbacks.json').then(r => r.json()).then(d => { window.__demoFallbacks = d; }).catch(() => {});
+  </script>
+
+  <!-- Code applicatif JSX (transpilé à la volée par Babel Standalone)
+       Ordre important : components → demos → pages → app (dépendances via window.Binacore) -->
+  <script type="text/babel" src="./components.jsx"></script>
+  <script type="text/babel" src="./demos.jsx"></script>
+  <script type="text/babel" src="./pages.jsx"></script>
+  <script type="text/babel" src="./app.jsx"></script>
+</body>
+</html>
