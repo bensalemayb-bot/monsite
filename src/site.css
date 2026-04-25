@@ -2042,3 +2042,105 @@ main { display: block; min-height: 100vh; }
   .kpi-stats__grid { grid-template-columns: 1fr; gap: 16px; }
 }
 
+/* ============================================================ */
+/* === v1.1 — TEAM HOME SECTION ============================== */
+/* ============================================================ */
+.team-home__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.team-home__card {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--bg-card);
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.team-home__card:hover {
+  border-color: var(--line-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px -22px var(--ac-glow);
+}
+.team-home__avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--ac);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 36px;
+  font-style: italic;
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+}
+.team-home__body { flex: 1; min-width: 0; }
+.team-home__name {
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--ink);
+}
+.team-home__role {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+  color: var(--ink-mute);
+  margin-top: 4px;
+}
+.team-home__bio {
+  line-height: 1.6;
+  margin: 12px 0 0;
+  color: var(--ink-mute);
+  font-size: 15px;
+}
+.team-home__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+.team-home__chip {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-mute);
+  background: var(--bg);
+}
+.team-home__footer {
+  margin-top: 40px;
+  text-align: center;
+  color: var(--ink-mute);
+  font-size: 15px;
+}
+.team-home__link {
+  color: var(--ac);
+  cursor: pointer;
+  border-bottom: 1px solid var(--line-blue);
+  transition: color 0.2s, border-color 0.2s;
+}
+.team-home__link:hover {
+  color: var(--ac-hover);
+  border-color: var(--ac-hover);
+}
+
+@media (max-width: 900px) {
+  .team-home__grid { grid-template-columns: 1fr; gap: 20px; }
+  .team-home__card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 28px 24px;
+  }
+  .team-home__chips { justify-content: center; }
+}

@@ -146,6 +146,7 @@ function HomePage({ onOpenAudit, onOpenDemo }) {
       </CtaBlock>
       <ServicesSection />
       <BenefitsSection />
+      <TeamHomeSection />
       <DemosSection onOpenDemo={onOpenDemo} />
       <ProofSection />
       <ProcessCondensedSection />
@@ -500,6 +501,60 @@ function BenefitsSection() {
               <p className="benefit-cell__text">{b.text}</p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------- Section 7b — L'ÉQUIPE QUI CODE (duo home) ----------
+function TeamHomeSection() {
+  const ref = useRef(null);
+  useReveal(ref);
+  const team = [
+    {
+      initials: 'BB',
+      name: 'Boualem Bensalem',
+      role: 'Fondateur · Lead builder',
+      bio: "Citoyen suisse-algérien basé à Genève. Autodidacte IA depuis 2022. 400 000+ lignes de code accumulées. A construit iafactory.ch et la plateforme Algérie. Lance Binacore comme marque d'offre services.",
+      chips: ['FastAPI', 'RAG', 'Claude', 'Next.js'],
+    },
+    {
+      initials: 'AB',
+      name: 'Ayoub Bensalem',
+      role: 'Co-builder · Frontend & audio',
+      bio: "Fils de Boualem. En formation technique. Autonome sur des briques complètes depuis 2024. Co-créateur de KhutbaBox. Spécialisé en intégrations front et produits voix/audio.",
+      chips: ['React', 'WhatsApp API', 'Whisper', 'Azure'],
+    },
+  ];
+  return (
+    <section className="section">
+      <div className="wrap">
+        <SectionHeader tag="L'équipe qui ship">
+          Deux <em>builders</em>. Pas une agence.
+        </SectionHeader>
+        <p className="lead" style={{ marginTop: '-32px', marginBottom: '48px', maxWidth: '58ch' }}>
+          Père et fils. Genève + remote. On code, on livre, on reste joignables après livraison.
+        </p>
+        <div className="team-home__grid reveal-stagger" ref={ref}>
+          {team.map((p, i) => (
+            <article key={p.initials} className="team-home__card" style={{ '--i': i }}>
+              <div className="team-home__avatar" aria-hidden="true">{p.initials}</div>
+              <div className="team-home__body">
+                <h3 className="team-home__name">{p.name}</h3>
+                <div className="team-home__role">{p.role}</div>
+                <p className="team-home__bio">{p.bio}</p>
+                <div className="team-home__chips">
+                  {p.chips.map(c => (
+                    <span key={c} className="team-home__chip">{c}</span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="team-home__footer">
+          → La version longue : <a className="team-home__link" onClick={() => window.__nav('/a-propos')}>notre page À propos</a>
         </div>
       </div>
     </section>
