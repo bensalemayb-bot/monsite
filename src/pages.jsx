@@ -329,10 +329,16 @@ function HeroSection({ onOpenAudit }) {
             <div className="hero__foot-left">— Binacore · Genève, CH</div>
           </div>
 
-          {/* --- Colonne droite : scène 3D Spline (interactive) + spotlight --- */}
+          {/* --- Colonne droite : scène 3D Spline (interactive) + spotlight + tagline overlay --- */}
           <div className="hero__col-3d">
             <Spotlight />
             <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" />
+            <div className="hero__3d-overlay" aria-hidden="true">
+              <span className="hero__3d-overlay-eyebrow">— 2026</span>
+              <p className="hero__3d-overlay-text">
+                Le futur,<br />c'est <em>maintenant</em>.
+              </p>
+            </div>
           </div>
         </div>
       </div>
