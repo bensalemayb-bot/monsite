@@ -449,14 +449,21 @@ function ServicesSection() {
       delay: '4-6 semaines',
       anchor: 'saas-sur-mesure'
     },
+    {
+      num: '004 / GEO & AI SEARCH',
+      title: 'Visibilité ChatGPT, Perplexity, AI Overviews.',
+      items: ['Audit GEO 100 critères', 'llms.txt + schema', 'Brand mention strategy', 'SSR / pré-rendu'],
+      delay: '1-2 semaines',
+      anchor: 'geo-ai-search'
+    },
   ];
   return (
     <section className="section section--alt">
       <div className="wrap">
-        <SectionHeader tag="Ce qu'on construit · 03 offres">
-          Trois piliers. Une obsession : <em>livrer vite</em>.
+        <SectionHeader tag="Ce qu'on construit · 04 offres">
+          Quatre piliers. Une obsession : <em>livrer vite</em>.
         </SectionHeader>
-        <div ref={ref} className="reveal-stagger grid-3">
+        <div ref={ref} className="reveal-stagger grid-4">
           {services.map((s, i) => (
             <div key={s.num} className="service-card" style={{ '--i': i }}>
               <div className="service-card__num">— {s.num}</div>
@@ -781,10 +788,10 @@ function ServicesPage({ onOpenAudit }) {
     <div className="route-view" id="main-content">
       <section className="page-head">
         <div className="wrap">
-          <div className="page-head__label">— 03 piliers</div>
+          <div className="page-head__label">— 04 piliers</div>
           <h1 className="page-head__h1">Ce qu'on construit.<br /><em>Concrètement</em>.</h1>
           <p className="page-head__lead">
-            Pas de mystère. Trois types de livrables, trois grilles de prix, trois délais. Vous choisissez ce qui colle à votre besoin.
+            Pas de mystère. Quatre types de livrables, quatre grilles de prix, quatre délais. Vous choisissez ce qui colle à votre besoin.
           </p>
         </div>
       </section>
@@ -840,6 +847,69 @@ function ServicesPage({ onOpenAudit }) {
         onCta={onOpenAudit}
       />
 
+      <section className="section section--alt" id="geo-ai-search">
+        <div className="wrap">
+          <div className="section-header">
+            <span className="tag">004 — GEO & AI SEARCH</span>
+            <h2 className="h2-section">Visibilité <em>ChatGPT</em>, <em>Perplexity</em>, <em>Google AI Overviews</em>.</h2>
+            <p className="mono" style={{ marginTop: 16, color: 'var(--ink-d-mute)' }}>1-2 semaines (audit + quick wins) · dès CHF 2'500</p>
+          </div>
+          <p style={{ color: 'var(--ink-d)', lineHeight: 1.6, fontSize: 17, maxWidth: 760, margin: '0 0 40px' }}>
+            Les moteurs IA ne lisent pas le web comme Google. 50% des requêtes sont déjà absorbées par AI Overviews — votre site est-il citable ? Binacore audite et corrige les 100 critères qui font qu'un agent vous cite (ou pas).
+          </p>
+          <div className="grid-2" style={{ alignItems: 'start' }}>
+            <div>
+              <h4 style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-d-faint)', margin: '0 0 20px' }}>
+                — Pour qui
+              </h4>
+              <p style={{ color: 'var(--ink-d)', lineHeight: 1.55, margin: '0 0 32px' }}>
+                PME et ETI dont les prospects posent des questions à ChatGPT/Perplexity avant de demander un devis. Éditeurs, SaaS, agences, services pro.
+              </p>
+              <h4 style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-d-faint)', margin: '0 0 20px' }}>
+                — Livrables
+              </h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
+                {[
+                  "Audit GEO complet (100 critères) — score + plan d'action priorisé",
+                  "Implémentation llms.txt, robots.txt AI-aware, schema.org enrichi (Person, Organization, FAQPage, ProfessionalService)",
+                  "Pré-rendu SSR ou snapshot statique pour rendre le contenu lisible aux crawlers IA (GPTBot, PerplexityBot, ClaudeBot)",
+                  "Réécriture de 5-10 passages clés en blocs auto-citables 134-167 mots",
+                  "Stratégie brand mention (LinkedIn, Reddit, YouTube) — le levier qui pèse 3× plus que les backlinks selon Ahrefs Dec 2025",
+                  "Suivi mensuel : tracking citations IA via DataForSEO ou équivalent",
+                ].map(e => (
+                  <li key={e} style={{ color: 'var(--ink-d)', lineHeight: 1.55, paddingLeft: 20, position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, color: 'var(--ac)' }}>—</span>{e}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-d-faint)', margin: '0 0 20px' }}>
+                — Délai
+              </h4>
+              <p style={{ color: 'var(--ink-d)', lineHeight: 1.55, margin: '0 0 32px' }}>
+                1 à 2 semaines pour l'audit + implémentation initiale. Suivi continu en option.
+              </p>
+              <h4 style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-d-faint)', margin: '0 0 20px' }}>
+                — Prix
+              </h4>
+              <p style={{ color: 'var(--ink-d)', lineHeight: 1.55, margin: '0 0 24px' }}>
+                dès CHF 2'500 (audit + quick wins). Build complet : CHF 6'500 – 12'000 selon volume de pages.
+              </p>
+              <h4 style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-d-faint)', margin: '0 0 20px' }}>
+                — Stack technique
+              </h4>
+              <div className="mono" style={{ color: 'var(--ink-d)', fontSize: 14, lineHeight: 1.8 }}>
+                {['llms.txt', 'schema.org', 'JSON-LD', 'SSR / Prerender', 'DataForSEO', 'GPTBot', 'PerplexityBot', 'ClaudeBot'].join(' · ')}
+              </div>
+              <button className="btn-primary" onClick={onOpenAudit} style={{ marginTop: 32 }}>
+                Auditer ma visibilité IA <Icon name="arrowRight" size={16} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing transparent */}
       <section className="section">
         <div className="wrap">
@@ -856,6 +926,10 @@ function ServicesPage({ onOpenAudit }) {
             <div className="pricing-line">
               <span className="pricing-line__name">SaaS sur-mesure</span>
               <span className="pricing-line__price">dès CHF 18'000 <span style={{ fontSize: 12, color: 'var(--ink-d-mute)', letterSpacing: '0.08em' }}>V1 + retainer optionnel</span></span>
+            </div>
+            <div className="pricing-line">
+              <span className="pricing-line__name">GEO & AI Search</span>
+              <span className="pricing-line__price">dès CHF 2'500 <span style={{ fontSize: 12, color: 'var(--ink-d-mute)', letterSpacing: '0.08em' }}>audit + quick wins</span></span>
             </div>
             <ul className="pricing-block__list">
               <li>Code source livré (repo privé à votre nom)</li>

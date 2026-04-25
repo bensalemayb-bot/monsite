@@ -7,6 +7,7 @@ Exploité en raison individuelle par Boualem Bensalem.
 - Automatisations : workflows custom livrés en 3-7 jours, dès CHF 1'800
 - Agents IA : assistants spécialisés en 1-3 semaines, dès CHF 6'500
 - SaaS sur-mesure : micro-produits verticaux en 4-6 semaines, dès CHF 18'000
+- GEO & AI Search : audit + implémentation visibilité ChatGPT/Perplexity, dès CHF 2'500
 
 ## Équipe
 - Boualem Bensalem (fondateur, lead builder)
