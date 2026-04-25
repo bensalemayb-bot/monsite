@@ -199,8 +199,22 @@ function SplineScene({ scene, className = '' }) {
     if (!el) return;
     const onLoad = () => setReady(true);
     el.addEventListener('load', onLoad);
-    return () => el.removeEventListener('load', onLoad);
-  }, []);
+    // React 18 sérialise mal les props sur un custom element pas encore défini :
+    // on attend que <spline-viewer> soit enregistré, puis on pose `url` comme
+    // VRAI attribut HTML pour déclencher attributeChangedCallback de Spline.
+    customElements.whenDefined('spline-viewer').then(() => {
+      el.setAttribute('url', scene);
+      // Filet de sécurité si l'event "load" a été émis avant le mount React
+      // (cas du chargement depuis cache).
+      if (el.shadowRoot && el.shadowRoot.querySelector('canvas')) setReady(true);
+    });
+    // Garde-fou : on dévoile la scène au bout de 6 s même si "load" ne fire pas.
+    const fallback = setTimeout(() => setReady(true), 6000);
+    return () => {
+      el.removeEventListener('load', onLoad);
+      clearTimeout(fallback);
+    };
+  }, [scene]);
   return (
     <div className={'spline-stage ' + className} aria-hidden="true">
       {!ready && (
@@ -208,11 +222,10 @@ function SplineScene({ scene, className = '' }) {
           <span className="spline-loader__ring" />
         </div>
       )}
-      {/* spline-viewer est un Web Component natif — JSX accepte les attributs custom */}
+      {/* spline-viewer est un Web Component natif — `url` posé via setAttribute en useEffect */}
       <spline-viewer
         ref={ref}
-        url={scene}
-        loading-anim
+        loading-anim=""
         events-target="global"
         style={{ width: '100%', height: '100%', opacity: ready ? 1 : 0, transition: 'opacity 0.6s ease' }}
       ></spline-viewer>
