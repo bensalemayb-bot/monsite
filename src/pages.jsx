@@ -137,6 +137,7 @@ function HomePage({ onOpenAudit, onOpenDemo }) {
   return (
     <div className="route-view" id="main-content">
       <HeroSection onOpenAudit={onOpenAudit} />
+      <KpiStatsSection />
       <SocialProofSection />
       <TickerSection />
       <NarrativeSection />
@@ -232,6 +233,54 @@ function SplineScene({ scene, className = '' }) {
       {/* Cache discrète du watermark Spline (en bas à droite) */}
       <div className="spline-mask" aria-hidden="true" />
     </div>
+  );
+}
+
+// ---------- KPI Stats — 3 pain-point figures ----------
+function KpiStatsSection() {
+  const ref = useRef(null);
+  useReveal(ref);
+  const stats = [
+    {
+      num: '73%',
+      label: 'Des PME suisses sans automatisation IA',
+      detail: "Aucun workflow connecté entre leurs outils en 2025. La majorité fait tout à la main.",
+    },
+    {
+      num: '15h',
+      label: 'Perdues par employé chaque semaine',
+      detail: "Sur des tâches répétitives, scriptables, sans valeur ajoutée. Soit ~750h/an et par tête.",
+    },
+    {
+      num: '60-80%',
+      label: 'Des demandes support sont scriptables',
+      detail: "Un agent IA correctement conçu absorbe l'écrasante majorité du tier 1, 24/7, en plusieurs langues.",
+    },
+  ];
+  return (
+    <section className="section">
+      <div className="wrap">
+        <SectionHeader tag="Le constat — pourquoi on existe">
+          Le mur invisible que <em>chaque PME</em> percute en 2026.
+        </SectionHeader>
+        <div className="kpi-stats__grid reveal-stagger" ref={ref}>
+          {stats.map((s, i) => (
+            <div key={s.num} className="kpi-stats__cell" style={{ '--i': i }}>
+              <div className="kpi-stats__num">{s.num}</div>
+              <div className="kpi-stats__label">{s.label}</div>
+              <p className="kpi-stats__detail">{s.detail}</p>
+            </div>
+          ))}
+        </div>
+        <button
+          type="button"
+          className="kpi-stats__cta"
+          onClick={() => window.__nav('/services')}
+        >
+          → Comment Binacore résout ça
+        </button>
+      </div>
+    </section>
   );
 }
 
